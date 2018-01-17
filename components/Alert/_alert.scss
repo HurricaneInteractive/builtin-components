@@ -1,0 +1,96 @@
+$default-bg: #f8f9fa;
+$default-border: #E6E6E6;
+$default-close: #CCCCCC;
+
+$success-bg: #EBFFEB;
+$success-border: #C7F2C7;
+$success-close: #B0EBB0;
+
+$warning-bg: #FFF9F2;
+$warning-border: #FFD9B3;
+$warning-close: #F7C299;
+
+$error-bg: #FFEBEB;
+$error-border: #FFB3B3;
+$error-close: #F79999;
+
+$info-bg: #E6F7FF;
+$info-border: #A6E3FF;
+$info-close: #99DAF7;
+
+$border-radius: 3px;
+
+$types: 'default' $default-border $default-bg $default-close, 
+        'success' $success-border $success-bg $success-close, 
+        'warning' $warning-border $warning-bg $warning-close, 
+        'error' $error-border $error-bg $error-close, 
+        'info' $info-border $info-bg $info-close;
+
+.alert {
+    display: block;
+    padding: 16px 15px 15px;
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: $border-radius;
+    margin-bottom: 10px;
+    position: relative;
+    transition: opacity 250ms ease-in-out;
+    @each $type in $types {
+        &.#{nth($type, 1)} {
+            border: 1px solid #{nth($type, 2)};
+            background-color: #{nth($type, 3)};
+            &.has-close {
+                .close-trigger svg {
+                    fill: #{nth($type, 4)};
+                }
+            }
+        }
+    }
+    &.positioned {
+        position: absolute;
+        z-index: 1001;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        box-shadow: 0 2px 2px 0 rgba(black, 0.16);
+        &.top {
+            top: 15px;
+        }
+        &.left {
+            left: 15px;
+        }
+        &.right {
+            right: 15px;
+        }
+        &.bottom {
+            bottom: 15px;
+        }
+    }
+    &.has-close {
+        padding-right: 39px;
+        .close-trigger {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 7px;
+            display: block;
+            padding: 8px;
+            line-height: 0;
+            svg {
+                max-width: 9px;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    &.fadeout {
+        opacity: 0;
+    }
+    > *:first-child {
+        margin-top: 0;
+    }
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}

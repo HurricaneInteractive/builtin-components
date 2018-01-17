@@ -1,0 +1,113 @@
+.alert {
+	display: block;
+	padding: 16px 15px 15px;
+	font-size: 16px;
+	font-weight: normal;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	position: relative;
+	transition: opacity 250ms ease-in-out;
+}
+
+.alert.default {
+	border: 1px solid #E6E6E6;
+	background-color: #f8f9fa;
+}
+
+.alert.default.has-close .close-trigger svg {
+	fill: #CCCCCC;
+}
+
+.alert.success {
+	border: 1px solid #C7F2C7;
+	background-color: #EBFFEB;
+}
+
+.alert.success.has-close .close-trigger svg {
+	fill: #B0EBB0;
+}
+
+.alert.warning {
+	border: 1px solid #FFD9B3;
+	background-color: #FFF9F2;
+}
+
+.alert.warning.has-close .close-trigger svg {
+	fill: #F7C299;
+}
+
+.alert.error {
+	border: 1px solid #FFB3B3;
+	background-color: #FFEBEB;
+}
+
+.alert.error.has-close .close-trigger svg {
+	fill: #F79999;
+}
+
+.alert.info {
+	border: 1px solid #A6E3FF;
+	background-color: #E6F7FF;
+}
+
+.alert.info.has-close .close-trigger svg {
+	fill: #99DAF7;
+}
+
+.alert.positioned {
+	position: absolute;
+	z-index: 1001;
+	top: auto;
+	left: auto;
+	right: auto;
+	bottom: auto;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+}
+
+.alert.positioned.top {
+	top: 15px;
+}
+
+.alert.positioned.left {
+	left: 15px;
+}
+
+.alert.positioned.right {
+	right: 15px;
+}
+
+.alert.positioned.bottom {
+	bottom: 15px;
+}
+
+.alert.has-close {
+	padding-right: 39px;
+}
+
+.alert.has-close .close-trigger {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 7px;
+	display: block;
+	padding: 8px;
+	line-height: 0;
+}
+
+.alert.has-close .close-trigger svg {
+	max-width: 9px;
+	width: 100%;
+	height: auto;
+}
+
+.alert.fadeout {
+	opacity: 0;
+}
+
+.alert > *:first-child {
+	margin-top: 0;
+}
+
+.alert > *:last-child {
+	margin-bottom: 0;
+}
