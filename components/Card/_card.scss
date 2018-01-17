@@ -1,0 +1,130 @@
+$card-padding: 16px;
+
+$default-bg: #f8f9fa;
+$default-border: #E6E6E6;
+$default-close: #CCCCCC;
+
+$border-radius: 3px;
+
+.card {
+    background-color: $default-bg;
+    border-radius: $border-radius;
+    border: 1px solid $default-border;
+    margin-bottom: 10px;
+    overflow: hidden;
+    .card-header {
+        font-weight: bold;
+        font-size: 18px;
+        padding: $card-padding;
+        position: relative;
+        p.card-title {
+            margin: 0;
+        }
+        &.flush {
+            padding: 0;
+            border-bottom: none;
+            & + .card-body {
+                border-top: none;
+            }
+        }
+        &.image {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 200px;
+            position: relative;
+            p.card-title {
+                position: absolute;
+                max-width: calc(100% - #{$card-padding});
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                padding: $card-padding 35px;
+                background-color: rgba(black, 0.7);
+                border-radius: $border-radius;
+            }
+            &:not(.flush) {
+                border-bottom: 0;
+                border-radius: $border-radius;
+                margin: $card-padding;
+                height: calc(200px - (#{$card-padding} * 2));
+            }
+            .collapse-icon {
+                top: 0;
+                transform: translate(0);
+                right: 0;
+                display: block;
+                padding: 8px;
+                line-height: 0;
+                background-color: rgba(black, 0.7);
+                svg {
+                    fill: white;
+                }
+            }
+        }
+        &.collapsable {
+            cursor: pointer;
+        }
+        .collapse-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            line-height: 0;
+            svg {
+                width: 9px;
+                fill: $default-close;
+                path {
+                    transition: opacity 250ms ease-in-out;
+                }
+            }
+        }
+        &:not(.closed) {
+            .collapse-icon {
+                svg {
+                    path:first-child {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+    .card-body {
+        background-color: white;
+        padding: $card-padding;
+        // border-top: 1px solid $default-border;
+        transform-origin: top center;
+        transition: height 250ms ease-in-out, padding 250ms ease-in-out, margin 250ms ease-in-out;
+        > *:first-child {
+            margin-top: 0;
+        }
+        > *:last-child {
+            margin-bottom: 0;
+        }
+        .separator {
+            margin-right: -$card-padding;
+            margin-left: -$card-padding;
+            height: 1px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            background-color: $default-border;
+            display: block;
+        }
+        img {
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            display: block;
+        }
+        &.collapsed {
+            height: 0px !important;
+            overflow: hidden;
+            padding-top: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-top: 0;
+        }
+    }
+}

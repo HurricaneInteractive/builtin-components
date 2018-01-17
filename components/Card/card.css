@@ -1,0 +1,135 @@
+.card {
+	background-color: #f8f9fa;
+	border-radius: 3px;
+	border: 1px solid #E6E6E6;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.card .card-header {
+	font-weight: bold;
+	font-size: 18px;
+	padding: 16px;
+	position: relative;
+}
+
+.card .card-header p.card-title {
+	margin: 0;
+}
+
+.card .card-header.flush {
+	padding: 0;
+	border-bottom: none;
+}
+
+.card .card-header.flush + .card-body {
+	border-top: none;
+}
+
+.card .card-header.image {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 200px;
+	position: relative;
+}
+
+.card .card-header.image p.card-title {
+	position: absolute;
+	max-width: calc(100% - 16px);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	padding: 16px 35px;
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 3px;
+}
+
+.card .card-header.image:not(.flush) {
+	border-bottom: 0;
+	border-radius: 3px;
+	margin: 16px;
+	height: calc(200px - (16px * 2));
+}
+
+.card .card-header.image .collapse-icon {
+	top: 0;
+	transform: translate(0);
+	right: 0;
+	display: block;
+	padding: 8px;
+	line-height: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.card .card-header.image .collapse-icon svg {
+	fill: white;
+}
+
+.card .card-header.collapsable {
+	cursor: pointer;
+}
+
+.card .card-header .collapse-icon {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 15px;
+	line-height: 0;
+}
+
+.card .card-header .collapse-icon svg {
+	width: 9px;
+	fill: #CCCCCC;
+}
+
+.card .card-header .collapse-icon svg path {
+	transition: opacity 250ms ease-in-out;
+}
+
+.card .card-header:not(.closed) .collapse-icon svg path:first-child {
+	opacity: 0;
+}
+
+.card .card-body {
+	background-color: white;
+	padding: 16px;
+	transform-origin: top center;
+	transition: height 250ms ease-in-out, padding 250ms ease-in-out, margin 250ms ease-in-out;
+}
+
+.card .card-body > *:first-child {
+	margin-top: 0;
+}
+
+.card .card-body > *:last-child {
+	margin-bottom: 0;
+}
+
+.card .card-body .separator {
+	margin-right: -16px;
+	margin-left: -16px;
+	height: 1px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background-color: #E6E6E6;
+	display: block;
+}
+
+.card .card-body img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	display: block;
+}
+
+.card .card-body.collapsed {
+	height: 0px !important;
+	overflow: hidden;
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-top: 0;
+}
