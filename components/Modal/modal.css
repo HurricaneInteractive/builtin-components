@@ -1,0 +1,105 @@
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.45);
+	height: 100%;
+	z-index: 1000;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 250ms ease-in-out;
+}
+
+.modal-overlay.active {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.modal {
+	background-color: #f8f9fa;
+	border-radius: 3px;
+	max-width: 900px;
+	overflow: hidden;
+	position: fixed;
+	z-index: 1000;
+	top: 50%;
+	left: 50%;
+	pointer-events: none;
+	opacity: 0;
+	transform: translate(-50%, -70%);
+	transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
+}
+
+.modal.active {
+	transform: translate(-50%, -50%);
+	opacity: 1;
+	pointer-events: all;
+}
+
+.modal .modal-header {
+	font-weight: bold;
+	font-size: 18px;
+	padding: 20px;
+	position: relative;
+}
+
+.modal .modal-header .close-trigger {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 7px;
+	display: block;
+	padding: 8px;
+	line-height: 0;
+}
+
+.modal .modal-header .close-trigger svg {
+	max-width: 9px;
+	width: 100%;
+	height: auto;
+	fill: #CCCCCC;
+}
+
+.modal .modal-body {
+	background-color: white;
+	padding: 20px;
+}
+
+.modal .modal-body > *:first-child {
+	margin-top: 0;
+}
+
+.modal .modal-body > *:last-child {
+	margin-bottom: 0;
+}
+
+.modal .modal-body .separator {
+	margin-right: -20px;
+	margin-left: -20px;
+	height: 1px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background-color: #E6E6E6;
+	display: block;
+}
+
+.modal .modal-actions {
+	background-color: #f8f9fa;
+	text-align: right;
+	padding: 15px 20px;
+}
+
+.modal .modal-actions a {
+	font-size: 14px;
+	text-transform: uppercase;
+	display: inline-block;
+	margin-left: 10px;
+	padding: 13px 15px 11px;
+	line-height: 1;
+	text-decoration: none;
+	background-color: white;
+	border: 1px solid #E6E6E6;
+	border-radius: 3px;
+	color: #232323;
+}

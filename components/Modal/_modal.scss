@@ -1,0 +1,106 @@
+$modal-padding: 20px;
+
+$color: #232323;
+
+$default-bg: #f8f9fa;
+$default-border: #E6E6E6;
+$default-close: #CCCCCC;
+
+$border-radius: 3px;
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    height: 100%;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 250ms ease-in-out;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.modal {
+    background-color: $default-bg;
+    border-radius: $border-radius;
+    max-width: 900px;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -70%);
+    transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
+    &.active {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        pointer-events: all;
+    }
+    .modal-header {
+        font-weight: bold;
+        font-size: 18px;
+        padding: $modal-padding;
+        position: relative;
+        .close-trigger {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 7px;
+            display: block;
+            padding: 8px;
+            line-height: 0;
+            svg {
+                max-width: 9px;
+                width: 100%;
+                height: auto;
+                fill: $default-close;
+            }
+        }
+    }
+    .modal-body {
+        background-color: white;
+        padding: $modal-padding;
+        // border-top: 1px solid $default-border;
+        > *:first-child {
+            margin-top: 0;
+        }
+        > *:last-child {
+            margin-bottom: 0;
+        }
+        .separator {
+            margin-right: -$modal-padding;
+            margin-left: -$modal-padding;
+            height: 1px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            background-color: $default-border;
+            display: block;
+        }
+    }
+    .modal-actions {
+        background-color: $default-bg;
+        // border-top: 1px solid $default-border;
+        text-align: right;
+        padding: 15px $modal-padding;
+        a {
+            font-size: 14px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-left: 10px;
+            padding: 13px 15px 11px;
+            line-height: 1;
+            text-decoration: none;
+            background-color: white;
+            border: 1px solid $default-border;
+            border-radius: 3px;
+            color: $color;
+        }
+    }
+}
