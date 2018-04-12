@@ -1,0 +1,81 @@
+$tooltip-bg: #282828;
+$border-radius: 3px;
+$tooltip-spacing: 12px;
+
+.tooltip-trigger {
+    position: relative;
+    &:hover {
+        .popup {
+            opacity: 1;
+        }
+    }
+    .popup {
+        position: absolute;
+        z-index: 2;
+        padding: 10px 12px;
+        width: fit-content;
+        background: $tooltip-bg;
+        border-radius: $border-radius;
+        color: white;
+        max-width: 100%;
+        font-size: 0.9em;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 250ms ease-in-out;
+        user-select: none;
+        &:after {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background-color: $tooltip-bg;
+            border-radius: 3px;
+            display: block;
+            position: absolute;
+            z-index: -1;
+        }
+        
+        &.top,
+        &.bottom {
+            left: 50%;
+            transform: translateX(-50%);
+            &:after {
+                left: 50%;
+                transform: translateX(-50%) rotate(45deg);
+            }
+        }
+        &.top {
+            bottom: calc(100% + #{$tooltip-spacing});
+            &:after {
+                top: calc(100% - 10px);
+            }
+        }
+        &.bottom {
+            top: calc(100% + #{$tooltip-spacing});
+            &:after {
+                bottom: calc(100% - 10px);
+            }
+        }
+
+        &.left,
+        &.right {
+            top: 50%;
+            transform: translateY(-50%);
+            &:after {
+                top: 47%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+        }
+        &.left {
+            right: calc(100% + #{$tooltip-spacing});
+            &:after {
+                left: calc(100% - 10px);
+            }
+        }
+        &.right {
+            left: calc(100% + #{$tooltip-spacing});
+            &:after {
+                right: calc(100% - 10px);
+            }
+        }
+    }
+}
