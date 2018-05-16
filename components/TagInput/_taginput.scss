@@ -1,0 +1,48 @@
+// Tag Input Styling
+$tag: #EF8354;
+$font-family: 'Nunito', sans-serif;
+
+.tag-input {
+	background: #eee;
+	border-radius: 5px;
+    padding: 12px 10px 7px 15px;
+	> span {
+		display: inline-block;
+	}
+	.tag {
+		display: inline-block;
+		margin: 0 5px 5px 0;
+		padding: 5px 8px;
+		background: $tag;
+		border-radius: 5px;
+		color: white;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 0.8em;
+		line-height: 1;
+		transition: background 250ms ease-in-out;
+		position: relative;
+		&:hover {
+			background: darken($tag, 5%);
+		}
+		a {
+			margin-left: 5px;
+			padding-left: 5px;
+			color: white;
+			text-decoration: none;
+			border-left: 1px solid rgba(255, 255, 255, 0.5);
+		}
+	}
+	input {
+        font-size: 1em;
+		font-family: $font-family;
+		display: inline-block;
+		margin: 0 5px 5px 0;
+		background: none;
+		border: none;
+		line-height: 22px;
+		&:focus {
+			outline: none;
+		}
+	}
+}
